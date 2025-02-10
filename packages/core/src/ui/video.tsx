@@ -162,7 +162,7 @@ function Video({
         preload="metadata"
         autoPlay={autoPlay}
         style={{
-          objectFit: 'cover',
+          objectFit: 'contain',
           objectPosition: 'center',
           pointerEvents: 'none',
         }}
