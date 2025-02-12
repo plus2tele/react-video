@@ -5,7 +5,6 @@ import useBuffered from "./use-buffered";
 import useDuration from "./use-duration";
 import useFullscreen from "./use-fullscreen";
 import useMouseMoves from "./use-mouse-moves";
-import useOnKeyDown from "./use-on-key-down";
 import usePip from "./use-pip";
 import usePlayPause from "./use-play";
 import usePlaybackRate from "./use-playrate";
@@ -65,47 +64,6 @@ export const useVideo = ({
     () => duration - currentTime,
     [duration, currentTime]
   );
-
-  useOnKeyDown(" ", () => {
-    if (isPlaying) {
-      handlePause();
-    } else {
-      handlePlay();
-    }
-  });
-  useOnKeyDown("ArrowLeft", () => backBy(5));
-  useOnKeyDown("ArrowRight", () => forwardBy(5));
-  useOnKeyDown("ArrowUp", () => handleVolumeChange(volume + 0.1));
-  useOnKeyDown("ArrowDown", () => handleVolumeChange(volume - 0.1));
-  useOnKeyDown("f", () => {
-    if (isFullscreen) {
-      handleExitFullScreen();
-    } else {
-      handleFullScreen();
-    }
-  });
-  useOnKeyDown("p", () => {
-    if (isPip) {
-      handleExitPip();
-    } else {
-      handlePip();
-    }
-  });
-  useOnKeyDown("m", () => {
-    if (isMuted) {
-      handleUnmute();
-    } else {
-      handleMute();
-    }
-  });
-  useOnKeyDown("Escape", () => {
-    if (isFullscreen) {
-      handleExitFullScreen();
-    }
-    if (isPip) {
-      handleExitPip();
-    }
-  });
 
   useEffect(() => {
     const video = videoRef.current as HTMLVideoElement;
