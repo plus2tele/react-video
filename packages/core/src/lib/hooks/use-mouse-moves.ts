@@ -29,7 +29,7 @@ const useMouseMoves = (
       const id = window.setTimeout(() => {
         setIsMoving(false);
         setShowControls(false);
-      }, 3000);
+      }, 700);
 
       setTimeoutId(id);
     };
