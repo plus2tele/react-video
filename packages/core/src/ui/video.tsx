@@ -151,9 +151,6 @@ function Video({
         loop={loop}
         className={cn(
           {
-            'rv-rounded-xl': !isFullscreen,
-          },
-          {
             'rv-h-full rv-w-full': FullScreen,
           },
           classNames?.video,
@@ -178,12 +175,11 @@ function Video({
           }}
           exit={{ opacity: 0 }}
           transition={{
-            duration: 0.3,
+            duration: 0.1,
             ease: 'easeInOut',
           }}
           className={cn(
             'rv-absolute rv-inset-0 rv-bg-gradient-to-t rv-from-black rv-via-transparent rv-to-black',
-            { 'rv-rounded-xl': !isFullscreen },
             classNames?.backdrop,
           )}
         />
